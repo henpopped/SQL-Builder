@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# SQL Query Builder
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+The SQL Query Builder is a web-based tool designed to simplify the creation of SQL queries for users without extensive SQL knowledge. It provides an intuitive interface for selecting tables, fields, and constructing conditions dynamically, offering real-time previews of the generated SQL queries.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Dynamic Query Building**: Users can select tables, fields, and specify conditions to dynamically generate SQL queries.
+- **Real-time Query Preview**: As users build their query, a real-time preview of the SQL statement is displayed.
+- **Operator and Connector Support**: Supports various operators (e.g., '=', '!=', '<', '>') and connectors (AND, OR) for building complex conditions.
+- **Minimalistic and Professional UI**: Designed with a focus on simplicity and ease of use, featuring a clean and professional look.
+- **Responsive Design**: Fully responsive layout that works well on both desktop and mobile devices.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React.js: For building the user interface.
+- Material-UI: For the component library and design system.
+- Formik: For managing form state and validation.
+- Yup: For schema-based form validation.
 
-### `npm test`
+## Setup and Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To set up the project locally, follow these steps:
 
-### `npm run build`
+1. **Clone the Repository**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+git clone https://github.com/henpopped/SQL-Builder.git
+cd SQL-Builder
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Install Dependencies**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+npm install
 
-### `npm run eject`
+3. **Run the Application**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+npm start 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This will start the development server and open the application in your default web browser.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## How to Use
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. **Entering a Table Name**: Start by entering the name of the table you wish to query.
+2. **Choose Fields**: Enter one or more fields that you want to include in your query.
+3. **Add Conditions**: Click on 'Add Another Condition' to specify conditions for filtering the query results.
+4. **Preview and Copy**: The SQL query is dynamically generated and can be previewed in real-time. Once satisfied, you can copy the query for use in your database management tool.
 
-## Learn More
+## License
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
