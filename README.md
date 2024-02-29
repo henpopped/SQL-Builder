@@ -26,6 +26,7 @@ To set up the project locally, follow these steps:
 1. **Clone the Repository**
 
 git clone https://github.com/henpopped/SQL-Builder.git
+
 cd SQL-Builder
 
 2. **Install Dependencies**

@@ -84,7 +84,7 @@ const QueryBuilder = () => {
   };
 
   return (
-    <Paper elevation={3} style={{ padding: "20px", margin: "20px" }}>
+    <Paper elevation={3} style={{ padding: "20px", margin: "20px", paddingBottom: "390px" }}>
       <Typography variant="h4" gutterBottom className="query-builder-header">
         SQL Query Builder
       </Typography>
