@@ -1,0 +1,32 @@
+.query-builder {
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.query-builder .MuiTextField-root {
+  margin-bottom: 16px;
+}
+
+.query-builder .MuiButton-root {
+  margin-right: 8px;
+}
+
+.query-builder-header {
+  margin-bottom: 24px;
+}
+
+.query-preview {
+  padding: 16px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-top: 24px;
+  font-family: monospace;
+  color: #333;
+  white-space: pre-wrap;
+}
