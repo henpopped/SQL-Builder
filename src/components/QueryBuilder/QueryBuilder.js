@@ -320,18 +320,12 @@ const QueryBuilder = () => {
               Add Another Condition
             </Button>
           </Grid>
-          {/* Submit Button */}
-          <Grid item xs={12}>
-            <Button type="submit" variant="contained" color="primary">
-              Submit Query
-            </Button>
-          </Grid>
         </Grid>
       </form>
       {/* Query Preview */}
       <div className="query-preview">
         <Typography variant="h6" gutterBottom>
-          Query Preview
+          Your SQL Query:
         </Typography>
         <Typography variant="body1">{constructQuery(formik.values)}</Typography>
       </div>
