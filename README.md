@@ -51,7 +51,7 @@ This will start the development server and open the application in your default 
 ## Example Images
 
 ### Example 1
-![Example 1](https://i.imgur.com/g8HrvAD.png)
+![Example 1](https://i.imgur.com/yuFG9Rc.png)
 
 ### Example 2
 ![Example 2](https://i.imgur.com/vtfyATR.png)
