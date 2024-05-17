@@ -51,19 +51,19 @@ This will start the development server and open the application in your default 
 ## Example Images
 
 ### Example 1
-![Example 1](https://i.imgur.com/yuFG9Rc.png)
+<img src="https://i.imgur.com/yuFG9Rc.png" alt="Example 1" width="800"/>
 
 ### Example 2
-![Example 2](https://i.imgur.com/vtfyATR.png)
+<img src="https://i.imgur.com/vtfyATR.png" alt="Example 2" width="800"/>
 
 ### Example 3
-![Example 3](https://i.imgur.com/mkgCVs9.png)
+<img src="https://i.imgur.com/mkgCVs9.png" alt="Example 3" width="800"/>
 
 ### Example 4
-![Example 4](https://i.imgur.com/Bkdu50q.png)
+<img src="https://i.imgur.com/Bkdu50q.png" alt="Example 4" width="800"/>
 
 ### Example 5
-![Example 5](https://i.imgur.com/DDtyw7j.png)
+<img src="https://i.imgur.com/DDtyw7j.png" alt="Example 5" width="800"/>
 
 ## License
 
