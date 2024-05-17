@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Button,
   Paper,
@@ -6,11 +6,15 @@ import {
   TextField,
   Grid,
   IconButton,
+  Tooltip,
+  Snackbar,
+  Alert,
 } from "@mui/material";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import "./QueryBuilder.css";
 
 const validationSchema = yup.object({
@@ -21,6 +25,7 @@ const validationSchema = yup.object({
       field: yup.string().required("Field is required"),
       operator: yup.string().required("Operator is required"),
       value: yup.string().required("Value is required"),
+      value2: yup.string(),
       connector: yup.string().required("Connector is required"),
     })
   ),
@@ -39,11 +44,15 @@ const validationSchema = yup.object({
 });
 
 const QueryBuilder = () => {
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+
   const formik = useFormik({
     initialValues: {
       tableName: "",
       fieldName: "",
-      conditions: [{ field: "", operator: "=", value: "", connector: "AND" }],
+      conditions: [
+        { field: "", operator: "=", value: "", value2: "", connector: "AND" }
+      ],
       joins: [{ type: "", joinTableName: "", onField: "", equalsTo: "" }],
     },
     validationSchema: validationSchema,
@@ -58,6 +67,7 @@ const QueryBuilder = () => {
       field: "",
       operator: "=",
       value: "",
+      value2: "",
       connector: "AND",
     };
     const nextConditions = formik.values.conditions.concat(newCondition);
@@ -91,22 +101,30 @@ const QueryBuilder = () => {
   };
 
   const constructQuery = (values) => {
-    let query = `SELECT ${values.fieldName || ""} FROM ${
-      values.tableName || ""
-    }`;
+    let query = `SELECT ${values.fieldName || ""} FROM ${values.tableName || ""}`;
+    
     values.joins.forEach((join) => {
       if (join.type && join.joinTableName && join.onField && join.equalsTo) {
         query += ` ${join.type} JOIN ${join.joinTableName} ON ${join.onField} = ${join.equalsTo}`;
       }
     });
+    
     const conditions = values.conditions.filter(
       (condition) => condition.field && condition.value
-    ); // Only include conditions with at least a field and value defined
+    );
+    
     if (conditions.length > 0) {
       const conditionsString = conditions
         .map((condition, index) => {
-          // Assuming 'connector' is not needed for the last condition
-          const conditionString = `${condition.field} ${condition.operator} '${condition.value}'`;
+          const isNumeric = !isNaN(condition.value) && !isNaN(parseFloat(condition.value));
+          let formattedValue = isNumeric ? condition.value : `'${condition.value}'`;
+          let conditionString = "";
+          if (condition.operator === "BETWEEN") {
+            const formattedValue2 = `'${condition.value2}'`;
+            conditionString = `${condition.field} ${condition.operator} ${formattedValue} AND ${formattedValue2}`;
+          } else {
+            conditionString = `${condition.field} ${condition.operator} ${formattedValue}`;
+          }
           return index < conditions.length - 1
             ? `${conditionString} ${condition.connector}`
             : conditionString;
@@ -114,7 +132,26 @@ const QueryBuilder = () => {
         .join(" ");
       query += ` WHERE ${conditionsString}`;
     }
-    return query;
+    return query + ";";
+  };
+
+  const copyToClipboard = (text) => {
+    navigator.clipboard.writeText(text).then(
+      () => {
+        console.log("Copied to clipboard successfully!");
+        setOpenSnackbar(true);
+      },
+      (err) => {
+        console.error("Failed to copy: ", err);
+      }
+    );
+  };
+
+  const handleCloseSnackbar = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpenSnackbar(false);
   };
 
   return (
@@ -195,6 +232,7 @@ const QueryBuilder = () => {
                       <option value="<=">&lt;=</option>
                       <option value=">">&gt;</option>
                       <option value=">=">&gt;=</option>
+                      <option value="BETWEEN">BETWEEN</option>
                     </TextField>
                   </Grid>
                   {/* Value Input */}
@@ -207,6 +245,18 @@ const QueryBuilder = () => {
                       onChange={formik.handleChange}
                     />
                   </Grid>
+                  {/* Value2 Input for BETWEEN operator */}
+                  {condition.operator === "BETWEEN" && (
+                    <Grid item xs={3}>
+                      <TextField
+                        fullWidth
+                        label={`Value 2 ${index + 1}`}
+                        name={`conditions[${index}].value2`}
+                        value={condition.value2}
+                        onChange={formik.handleChange}
+                      />
+                    </Grid>
+                  )}
                   {/* Connector Dropdown */}
                   {index < formik.values.conditions.length - 1 && (
                     <Grid item xs={2}>
@@ -327,8 +377,31 @@ const QueryBuilder = () => {
         <Typography variant="h6" gutterBottom>
           Your SQL Query:
         </Typography>
-        <Typography variant="body1">{constructQuery(formik.values)}</Typography>
+        <Grid container alignItems="center">
+          <Grid item xs={11}>
+            <Typography variant="body1">{constructQuery(formik.values)}</Typography>
+          </Grid>
+          <Grid item xs={1}>
+            <Tooltip title="Copy to Clipboard">
+              <IconButton
+                onClick={() => copyToClipboard(constructQuery(formik.values))}
+                color="primary"
+              >
+                <ContentCopyIcon />
+              </IconButton>
+            </Tooltip>
+          </Grid>
+        </Grid>
       </div>
+      <Snackbar
+        open={openSnackbar}
+        autoHideDuration={3000}
+        onClose={handleCloseSnackbar}
+      >
+        <Alert onClose={handleCloseSnackbar} severity="success">
+          Query copied to clipboard.
+        </Alert>
+      </Snackbar>
     </Paper>
   );
 };

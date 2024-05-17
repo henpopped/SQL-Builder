@@ -1,5 +1,7 @@
 # SQL Query Builder
 
+![Welcome Image](https://imgur.com/sZqhjxC)
+
 ## Description
 
 The SQL Query Builder is a web-based tool designed to simplify the creation of SQL queries for users without extensive SQL knowledge. It provides an intuitive interface for selecting tables, fields, and constructing conditions dynamically, offering real-time previews of the generated SQL queries.
@@ -8,7 +10,7 @@ The SQL Query Builder is a web-based tool designed to simplify the creation of S
 
 - **Dynamic Query Building**: Users can select tables, fields, and specify conditions to dynamically generate SQL queries.
 - **Real-time Query Preview**: As users build their query, a real-time preview of the SQL statement is displayed.
-- **Operator and Connector Support**: Supports various operators (e.g., '=', '!=', '<', '>') and connectors (AND, OR) for building complex conditions.
+- **Operator and Connector Support**: Supports various operators (e.g., '=', '!=', '<', '>', 'BETWEEN') and connectors (AND, OR) for building complex conditions.
 - **Minimalistic and Professional UI**: Designed with a focus on simplicity and ease of use, featuring a clean and professional look.
 - **Responsive Design**: Fully responsive layout that works well on both desktop and mobile devices.
 
@@ -45,6 +47,23 @@ This will start the development server and open the application in your default 
 2. **Choose Fields**: Enter one or more fields that you want to include in your query.
 3. **Add Conditions**: Click on 'Add Another Condition' to specify conditions for filtering the query results.
 4. **Preview and Copy**: The SQL query is dynamically generated and can be previewed in real-time. Once satisfied, you can copy the query for use in your database management tool.
+
+## Example Images
+
+### Example 1
+![Example 1](https://imgur.com/g8HrvAD)
+
+### Example 2
+![Example 2](https://imgur.com/vtfyATR)
+
+### Example 3
+![Example 3](https://imgur.com/mkgCVs9)
+
+### Example 4
+![Example 4](https://imgur.com/Bkdu50q)
+
+### Example 5
+![Example 5](https://imgur.com/DDtyw7j)
 
 ## License
 
