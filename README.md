@@ -1,6 +1,6 @@
 # SQL Query Builder
 
-![Welcome Image](https://imgur.com/sZqhjxC)
+![Welcome Image](https://i.imgur.com/sZqhjxC.png)
 
 ## Description
 
@@ -51,19 +51,19 @@ This will start the development server and open the application in your default 
 ## Example Images
 
 ### Example 1
-![Example 1](https://imgur.com/g8HrvAD)
+![Example 1](https://i.imgur.com/g8HrvAD.png)
 
 ### Example 2
-![Example 2](https://imgur.com/vtfyATR)
+![Example 2](https://i.imgur.com/vtfyATR.png)
 
 ### Example 3
-![Example 3](https://imgur.com/mkgCVs9)
+![Example 3](https://i.imgur.com/mkgCVs9.png)
 
 ### Example 4
-![Example 4](https://imgur.com/Bkdu50q)
+![Example 4](https://i.imgur.com/Bkdu50q.png)
 
 ### Example 5
-![Example 5](https://imgur.com/DDtyw7j)
+![Example 5](https://i.imgur.com/DDtyw7j.png)
 
 ## License
 
